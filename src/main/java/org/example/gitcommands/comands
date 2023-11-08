@@ -5,7 +5,8 @@ git status   -   nayel @ntacik vichak@ git repositoryayi
 
 git add <files> - avelacnum enq fayler@ indexum  orinak  git add example.txt
 
-git commit -m "<message>"
+git commit -m "<message>"  commit enq anum
+git commit -am "<message>"  commit + add miasin
 
 git log  - cuyc et talis bolor commitner@
 
