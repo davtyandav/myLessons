@@ -1,0 +1,9 @@
+1. Create table.
+
+CREATE TABLE users (
+                       id SERIAL PRIMARY KEY,
+                       name VARCHAR(50),
+                       lastname VARCHAR(50)
+);
+
+

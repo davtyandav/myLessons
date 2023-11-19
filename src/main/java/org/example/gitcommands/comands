@@ -1,0 +1,17 @@
+git init  - tvlal proectum avelacnim enq .git papkan
+
+git status   -   nayel @ntacik vichak@ git repositoryayi
+(ays hraman@ cuyc kta vor faylern en popoxutyan entarkvel ,kam vor faylern en avelacel ,kam ays hramani ognutyamb karox enq tesnel vor faylern en avelacel indexum)
+
+git add <files> - avelacnum enq fayler@ indexum  orinak  git add example.txt
+
+git commit -m "<message>"  commit enq anum
+git commit -am "<message>"  commit + add miasin
+
+git log  - cuyc et talis bolor commitner@
+
+git checkout <commit hash> - orinak git commit a1sd4df5afd5as12sad4as  (a1sd4df5afd5as12sad4as  - commiti heshna (SHa1))
+
+git checkout <breanch name>
+
+git branch "newBranch"  sarquma nor brench
