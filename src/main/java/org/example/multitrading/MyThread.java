@@ -5,14 +5,13 @@ public class MyThread extends Thread {
     public void run() {
         System.out.println("start MyThread");
         try {
-            for (int i = 0; i < 5; i++) {
-                System.out.println(i);
-                Thread.sleep(1000);
+            System.out.println(Thread.currentThread());
 
-            }
-            System.out.println("end MyThread");
+            MyClass.extracted();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 }
