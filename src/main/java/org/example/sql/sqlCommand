@@ -1,10 +1,32 @@
-1. Create table.
-
-CREATE TABLE users (
-                       id SERIAL PRIMARY KEY,
-                       name VARCHAR(50),
-                       lastname VARCHAR(50)
+CREATE TABLE groups
+(
+    id   SERIAL PRIMARY KEY,
+    name VARCHAR(50)
 );
 
+ALTER TABLE users
+    ADD group_id INT,
+    ADD FOREIGN KEY (group_id) REFERENCES users (id);
 
 
+SELECT u.address, count(*)
+from users u
+group by (u.address)
+having count(u.address) > 1;
+
+
+SELECT count(*)
+from users u
+         inner join groups g on g.id = u.group_id
+group by (g.name, u.address)
+having g.name = 'developer'
+   and u.address = 'A2';
+
+
+
+ALTER TABLE users
+    ADD address VARCHAR(50);
+
+
+
+SHOW TRANSACTION ISOLATION LEVEL;
