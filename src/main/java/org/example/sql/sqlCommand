@@ -22,7 +22,7 @@ group by (g.name, u.address)
 having g.name = 'developer'
    and u.address = 'A2';
 
-
+Select * from users u inner join groups g on u.group_id==g.id where g.name='developer'
 
 ALTER TABLE users
     ADD address VARCHAR(50);
