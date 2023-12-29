@@ -22,11 +22,52 @@ group by (g.name, u.address)
 having g.name = 'developer'
    and u.address = 'A2';
 
-Select * from users u inner join groups g on u.group_id==g.id where g.name='developer'
+
+SELECT *
+from users u
+         right join groups g on g.id = u.group_id;
+
 
 ALTER TABLE users
-    ADD address VARCHAR(50);
+    ADD salary INT;
+
+SELECT table_name
+FROM information_schema.columns
+WHERE table_name = 'users'
+  AND table_schema = 'test_db';
+
+Select *
+from users u
+         inner join groups g on u.group_id = g.id
+where g.name = 'developer'
+order by u.name;
+
+CREATE TABLE colors
+(
+    Id   INT NOT NULL PRIMARY KEY,
+    name VARCHAR(50),
+    UNIQUE (name)
+
+);
+
+CREATE TABLE cars
+(
+    id       INT NOT NULL PRIMARY KEY,
+    name     VARCHAR(50),
+    color_id INT,
+    FOREIGN KEY (color_id) REFERENCES colors (id)
+);
 
 
+
+select colors.name, count(*)
+from cars inner join colors on cars.color_id = colors.Id
+GROUP BY colors.name
+having count(*) > 5;
+
+
+select colors.name, (Select count(*) from cars where cars.color_id = colors.id)
+from colors
 
 SHOW TRANSACTION ISOLATION LEVEL;
+
