@@ -58,8 +58,6 @@ CREATE TABLE cars
     FOREIGN KEY (color_id) REFERENCES colors (id)
 );
 
-
-
 select colors.name, count(*)
 from cars inner join colors on cars.color_id = colors.Id
 GROUP BY colors.name
