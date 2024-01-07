@@ -2,7 +2,7 @@ package org.example.oop;
 
 public class A {
 
-    public void x() {
+    protected void x() {
         System.out.println("A");
     }
 }

@@ -8,10 +8,10 @@ import java.util.concurrent.TimeUnit;
 public class Starter {
     public static void main(String[] args) {
         ThreadPoolExecutor threadPoolExecutor =
-            new ThreadPoolExecutor(3,
-                                   7,
-                                   1, TimeUnit.MICROSECONDS,
-                                   new LinkedBlockingDeque<>(2));
+                new ThreadPoolExecutor(3,
+                        7,
+                        1, TimeUnit.MICROSECONDS,
+                        new LinkedBlockingDeque<>(2));
 
         for (int i = 0; i < 10; i++) {
             MyCallable task = new MyCallable();
