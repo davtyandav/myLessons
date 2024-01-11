@@ -1,0 +1,63 @@
+Spring Framework - это обширный фреймворк для создания и управления приложениями на языке Java.
+ Он предоставляет множество модулей и функциональных возможностей для различных аспектов
+ разработки приложений. Вот несколько ключевых областей (scope) в Spring Framework:
+
+1. Singleton (По умолчанию): Это стандартная область видимости по умолчанию.
+Если бин (компонент Spring) объявлен как singleton, то Spring создает и
+управляет единственным экземпляром этого бина в контейнере Spring. Это означает,
+что каждый запрос на получение бина возвращает один и тот же экземпляр.
+
+
+@Component
+public class MySingletonBean {
+    // ...
+}
+
+2 .Prototype: В этом случае Spring создает новый экземпляр бина при каждом запросе.
+Экземпляры не совместно используются между различными клиентами.
+
+@Component
+@Scope("prototype")
+public class MyPrototypeBean {
+    // ...
+}
+
+3. Request: Этот scope используется в веб-приложениях и означает,
+что бин будет создаваться заново для каждого HTTP-запроса.
+Экземпляры делятся между различными компонентами, связанными с одним HTTP-запросом.
+
+@Component
+@Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class MyRequestScopedBean {
+    // ...
+}
+
+4. Session: Аналогично request, но с областью видимости на уровне сессии в веб-приложениях.
+Бин создается заново для каждой сессии пользователя.
+
+@Component
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class MySessionScopedBean {
+    // ...
+}
+
+5.Global Session: Область видимости аналогична session, но применяется к глобальной сессии,
+что обычно используется в портлет-приложениях.
+
+@Component
+@Scope(value = WebApplicationContext.SCOPE_GLOBAL_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
+public class MyGlobalSessionScopedBean {
+    // ...
+}
+
+6.Application: Область видимости, действующая в пределах всего контекста приложения.
+Экземпляры делятся между всеми компонентами в приложении.
+
+@Component
+@Scope(ConfigurableApplicationContext.SCOPE_APPLICATION)
+public class MyApplicationScopedBean {
+    // ...
+}
+
+Эти области видимости предоставляют управление временем жизни бинов в Spring и позволяют адаптировать
+их под различные потребности приложения.
